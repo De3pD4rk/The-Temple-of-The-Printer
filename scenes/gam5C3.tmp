@@ -420,21 +420,3 @@ position = Vector2(51, 69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_si5v3")
-
-[node name="Platform" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(4, -191)
-
-[node name="Platform2" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(3, -236)
-
-[node name="Platform3" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(3, -278)
-
-[node name="Platform4" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(3, -320)
-
-[node name="Platform5" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(2, -367)
-
-[node name="Platform6" parent="." instance=ExtResource("3_gf1mn")]
-position = Vector2(5, -410)
