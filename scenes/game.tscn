@@ -1,12 +1,12 @@
-[gd_scene load_steps=26 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=20 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="2_ggm60"]
 [ext_resource type="Texture2D" uid="uid://meuvqbsbnpoi" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="2_tiivv"]
 [ext_resource type="PackedScene" uid="uid://cy4ovhybaijyx" path="res://scenes/platform.tscn" id="3_gf1mn"]
-[ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="5_ayman"]
 [ext_resource type="PackedScene" uid="uid://bbeg6j2hwtxwh" path="res://scenes/killzone.tscn" id="5_on63n"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/slime.tscn" id="6_ade6g"]
+[ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun.tscn" id="6_o1wkc"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="7_7b1wu"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
 
@@ -349,79 +349,10 @@ texture = ExtResource("2_tiivv")
 [sub_resource type="TileSet" id="TileSet_ykxf4"]
 sources/0 = SubResource("TileSetAtlasSource_yxqf3")
 
-[sub_resource type="GDScript" id="GDScript_yfipx"]
-script/source = "extends \"res://scripts/collectables/collectable.gd\"
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-func collect():
-	animation_player.play(\"spin\")
-	await animation_player.animation_finished
-	super.collect()
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_id0iw"]
-resource_local_to_scene = true
-size = Vector2(10, 12)
-
-[sub_resource type="Animation" id="Animation_dopxs"]
-resource_name = "spin"
-length = 0.4
-step = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_f3mpy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oxo85"]
-_data = {
-"RESET": SubResource("Animation_f3mpy"),
-"spin": SubResource("Animation_dopxs")
-}
-
-[sub_resource type="PackedScene" id="PackedScene_i3acr"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PowerUp1", "script", "CollisionShape2D", "shape", "AnimatedSprite2D", "AnimationPlayer", "libraries"),
-"node_count": 3,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 1, 1, 1, 0, 0, 0, 2147483647, 262146, -1, 1, 3, 2, 0, 0, 0, 5, 786437, -1, 1, 6, 3, 0),
-"variants": [ExtResource("5_ayman"), SubResource("GDScript_yfipx"), SubResource("RectangleShape2D_id0iw"), {
-"": SubResource("AnimationLibrary_oxo85")
-}],
-"version": 3
-}
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0510x"]
 resource_name = "collectables"
-scenes/1/scene = SubResource("PackedScene_i3acr")
-scenes/2/scene = ExtResource("7_80dxl")
+scenes/1/scene = ExtResource("7_80dxl")
+scenes/2/scene = ExtResource("6_o1wkc")
 
 [sub_resource type="TileSet" id="TileSet_pi40g"]
 sources/0 = SubResource("TileSetScenesCollectionSource_0510x")
@@ -471,7 +402,7 @@ tile_map_data = PackedByteArray("AADY/wMAAAAAAAsAAADY/wQAAAAAAAwAAADY/wUAAAAAAA0
 tile_set = SubResource("TileSet_ykxf4")
 
 [node name="Collectables" type="TileMapLayer" parent="MapLayers"]
-tile_map_data = PackedByteArray("AAAIAP3/AAAAAAAAAQAJAP3/AAAAAAAAAQAGAPz/AAAAAAAAAgAHAPz/AAAAAAAAAgALAPz/AAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAGAPz/AAAAAAAAAQAHAPz/AAAAAAAAAQALAPz/AAAAAAAAAQAPAPn/AAAAAAAAAgA=")
 tile_set = SubResource("TileSet_pi40g")
 
 [node name="Slime" parent="." instance=ExtResource("6_ade6g")]
