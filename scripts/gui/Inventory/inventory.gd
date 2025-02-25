@@ -12,3 +12,8 @@ func insert(item: InventoryItem):
 			items[i] = item
 			break
 	updated.emit()
+	
+func clear():
+	for i in range(items.size()):
+		items[i] = null
+	updated.emit()
