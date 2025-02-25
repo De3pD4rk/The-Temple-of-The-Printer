@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhw008woawyn4"]
+[gd_scene load_steps=3 format=3 uid="uid://bhw008woawyn4"]
 
+[ext_resource type="Script" path="res://scripts/gui/Inventory/hotbar_gui.gd" id="1_1tcc8"]
 [ext_resource type="PackedScene" uid="uid://r7o4jh3g6y6t" path="res://scenes/gui/hotbar_slot.tscn" id="1_la4p3"]
 
 [node name="Hotbar" type="HBoxContainer"]
 offset_right = 68.0
 offset_bottom = 20.0
+script = ExtResource("1_1tcc8")
 
 [node name="HotbarSlot" parent="." instance=ExtResource("1_la4p3")]
 layout_mode = 2

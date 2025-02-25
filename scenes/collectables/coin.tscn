@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://crra5d04bv6pn"]
+[gd_scene load_steps=19 format=3 uid="uid://crra5d04bv6pn"]
 
 [ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="1_58xak"]
 [ext_resource type="Script" path="res://scripts/collectables/coin.gd" id="2_7suwp"]
 [ext_resource type="Texture2D" uid="uid://cpvuve6rxk8k0" path="res://brackeys_platformer_assets/sprites/coin.png" id="2_d4ee3"]
+[ext_resource type="Resource" uid="uid://stbeelr22qyx" path="res://scripts/gui/Inventory/coin.tres" id="3_js03d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t3wq"]
 resource_local_to_scene = true
@@ -102,6 +103,7 @@ animations = [{
 
 [node name="Coin" instance=ExtResource("1_58xak")]
 script = ExtResource("2_7suwp")
+itemRes = ExtResource("3_js03d")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_0t3wq")
