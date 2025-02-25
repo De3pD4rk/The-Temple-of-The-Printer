@@ -9,7 +9,6 @@ func collect(inventory: Inventory):
 	animated_sprite_2d.speed_scale = 5
 	timer.start()
 
-
 func _on_timer_timeout() -> void:
 	animated_sprite_2d.speed_scale = 1
 	print("Coin collected")

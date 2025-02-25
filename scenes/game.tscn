@@ -364,7 +364,7 @@ sources/0 = SubResource("TileSetScenesCollectionSource_0510x")
 [node name="Game" type="Node2D"]
 position = Vector2(-4, 4)
 
-[node name="Player" parent="." instance=ExtResource("1_ri33b")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
 position = Vector2(57, -21)
 inventory = ExtResource("2_g53v5")
 

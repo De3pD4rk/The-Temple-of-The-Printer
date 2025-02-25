@@ -17,3 +17,9 @@ func clear():
 	for i in range(items.size()):
 		items[i] = null
 	updated.emit()
+
+func isFull():
+	for i in range(items.size()):
+		if items[i] == null:
+			return false
+	return true

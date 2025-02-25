@@ -43,5 +43,5 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_hurt_box_area_entered(area):
-	if area.has_method("collect"):
+	if area.has_method("collect") and not inventory.isFull():
 		area.collect(inventory)
