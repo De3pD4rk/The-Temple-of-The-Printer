@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://wd8frvwauo84"]
+[gd_resource type="Resource" script_class="Shotgun" load_steps=3 format=3 uid="uid://wd8frvwauo84"]
 
-[ext_resource type="Script" path="res://scripts/gui/Inventory/inventory_item.gd" id="1_aa2hr"]
-[ext_resource type="Texture2D" uid="uid://p8p1lakkxu5j" path="res://Ninja Adventure - Asset Pack/Items/Weapons/MagicWand/Sprite.png" id="2_qc0mt"]
+[ext_resource type="Script" path="res://scripts/gui/Inventory/shotgun.gd" id="1_ad858"]
+[ext_resource type="Texture2D" uid="uid://rmgslhh5ji2b" path="res://Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="2_vq23b"]
 
 [resource]
-script = ExtResource("1_aa2hr")
-name = "shotgun"
-texture = ExtResource("2_qc0mt")
+script = ExtResource("1_ad858")
+name = "Shotgun"
+texture = ExtResource("2_vq23b")

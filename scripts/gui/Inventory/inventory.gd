@@ -3,6 +3,7 @@ extends Resource
 class_name Inventory
 
 signal updated
+signal use_item
 
 @export var items: Array[InventoryItem]
 
@@ -23,3 +24,8 @@ func isFull():
 		if items[i] == null:
 			return false
 	return true
+
+func use_item_at_index(index: int) -> void:
+	var slot = items[index]
+	if not slot == null:
+		use_item.emit(slot)

@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -7,6 +7,9 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var inventory: Inventory
+
+func _ready():
+	inventory.use_item.connect(use_item)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -45,3 +48,7 @@ func _physics_process(delta: float) -> void:
 func _on_hurt_box_area_entered(area):
 	if area.has_method("collect") and not inventory.isFull():
 		area.collect(inventory)
+
+
+func use_item(item: InventoryItem) -> void:
+	item.use(self)
