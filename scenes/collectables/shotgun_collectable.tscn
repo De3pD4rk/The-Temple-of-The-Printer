@@ -1,22 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://bn6rp6npth5mx"]
 
 [ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="1_w151k"]
-[ext_resource type="Texture2D" uid="uid://xn00vvt3iqiw" path="res://brackeys_platformer_assets/sprites/fruit.png" id="2_icmck"]
 [ext_resource type="Script" path="res://scripts/collectables/shotgun_collectable.gd" id="2_ynl6k"]
 [ext_resource type="Resource" uid="uid://wd8frvwauo84" path="res://scripts/gui/Inventory/shotgun.tres" id="3_214ty"]
+[ext_resource type="Texture2D" uid="uid://dxwj63wjspwmp" path="res://TTTP Art/Weapons/shotgun.png" id="4_mi4w8"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jvidm"]
-radius = 6.08276
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1vi5"]
+size = Vector2(11.527, 16.6357)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_126b6"]
-atlas = ExtResource("2_icmck")
-region = Rect2(0, 32, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1i3kr"]
+atlas = ExtResource("4_mi4w8")
+region = Rect2(0, 0, 32, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gkuvl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_126b6")
+"texture": SubResource("AtlasTexture_1i3kr")
 }],
 "loop": true,
 "name": &"default",
@@ -28,7 +28,9 @@ script = ExtResource("2_ynl6k")
 itemRes = ExtResource("3_214ty")
 
 [node name="CollisionShape2D" parent="." index="0"]
-shape = SubResource("CircleShape2D_jvidm")
+position = Vector2(-6.25849e-07, 1.19209e-07)
+scale = Vector2(2.7761, 0.601117)
+shape = SubResource("RectangleShape2D_v1vi5")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_gkuvl")

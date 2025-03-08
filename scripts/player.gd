@@ -57,6 +57,11 @@ func show_item(item: InventoryItem) -> void:
 	if not current_weapon == null:
 		weapon_holder.get_child(0).queue_free()
 		current_weapon = null
+	
 	if item and item is ShotgunItem:
+		current_weapon = item.new_instance()
+		weapon_holder.add_child(current_weapon)
+		
+	if item and item is PrinterItem:
 		current_weapon = item.new_instance()
 		weapon_holder.add_child(current_weapon)

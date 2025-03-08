@@ -32,5 +32,6 @@ func use_item_at_index(index: int) -> void:
 		use_item.emit(slot)
 
 func show_item_at_index(index:int) -> void:
+	print("HERe")
 	var slot = items[index]
 	show_item.emit(slot)

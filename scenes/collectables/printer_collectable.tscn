@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3ddh1voopsbm"]
+
+[ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="1_fyxj5"]
+[ext_resource type="Script" path="res://scripts/collectables/printer_collectable.gd" id="2_ffdum"]
+[ext_resource type="Texture2D" uid="uid://b5bu8c0c7b2xb" path="res://TTTP Art/Weapons/printer.png" id="2_le4fy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhk75"]
+resource_local_to_scene = true
+size = Vector2(16, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iplx"]
+atlas = ExtResource("2_le4fy")
+region = Rect2(0, 0, 16, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_afcmb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iplx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Printer_Collectable" instance=ExtResource("1_fyxj5")]
+script = ExtResource("2_ffdum")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_xhk75")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_afcmb")
