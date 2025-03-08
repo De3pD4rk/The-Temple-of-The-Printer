@@ -3,7 +3,25 @@ extends Node2D
 const BULLET = preload("res://scenes/weapons/bullet.tscn")
 
 @onready var barrel: Marker2D = $barrel
+@onready var shootspeed_timer: Timer = $shootspeed
 
+@export var shootSpeed = 1.0
+
+var canShoot = true
+
+func _ready():
+	shootspeed_timer.wait_time = 1.0/shootSpeed
+	
+
+func shoot():
+	if canShoot:
+		canShoot = false
+		shootspeed_timer.start()
+		var bullet_instance = BULLET.instantiate()
+		bullet_instance.global_position = get_node("barrel").global_position
+		bullet_instance.rotation = rotation
+		get_tree().root.add_child(bullet_instance)
+	
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	
@@ -14,9 +32,10 @@ func _process(delta: float) -> void:
 		scale.y = 1
 
 	if Input.is_action_just_pressed("use_item"):
-		var bullet_instance = BULLET.instantiate()
-		bullet_instance.global_position = get_node("barrel").global_position
-		bullet_instance.rotation = rotation
-		get_tree().root.add_child(bullet_instance)
+		shoot()
 		
 		
+
+
+func _on_shootspeed_timeout() -> void:
+	canShoot = true
