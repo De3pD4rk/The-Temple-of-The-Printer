@@ -4,6 +4,7 @@ class_name Inventory
 
 signal updated
 signal use_item
+signal show_item
 
 @export var items: Array[InventoryItem]
 
@@ -29,3 +30,7 @@ func use_item_at_index(index: int) -> void:
 	var slot = items[index]
 	if not slot == null:
 		use_item.emit(slot)
+
+func show_item_at_index(index:int) -> void:
+	var slot = items[index]
+	show_item.emit(slot)

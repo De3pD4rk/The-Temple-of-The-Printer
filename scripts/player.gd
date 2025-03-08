@@ -5,11 +5,15 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var weapon_holder: Node2D = $WeaponHolder
 
 @export var inventory: Inventory
 
+var current_weapon: Node2D = null
+
 func _ready():
 	inventory.use_item.connect(use_item)
+	inventory.show_item.connect(show_item)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -52,3 +56,12 @@ func _on_hurt_box_area_entered(area):
 
 func use_item(item: InventoryItem) -> void:
 	item.use(self)
+	
+func show_item(item: InventoryItem) -> void:
+	if not current_weapon == null:
+		weapon_holder.get_child(0).queue_free()
+		current_weapon = null
+		
+	if item and item is ShotgunItem:
+		current_weapon = item.new_instance()
+		weapon_holder.add_child(current_weapon)

@@ -23,7 +23,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Shotgun" instance=ExtResource("1_w151k")]
+[node name="Shotgun_Collectable" instance=ExtResource("1_w151k")]
 script = ExtResource("2_ynl6k")
 itemRes = ExtResource("3_214ty")
 

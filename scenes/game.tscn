@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cy4ovhybaijyx" path="res://scenes/platform.tscn" id="3_gf1mn"]
 [ext_resource type="PackedScene" uid="uid://bbeg6j2hwtxwh" path="res://scenes/killzone.tscn" id="5_on63n"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/slime.tscn" id="6_ade6g"]
-[ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun.tscn" id="6_o1wkc"]
+[ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="7_7b1wu"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
@@ -376,6 +376,8 @@ limit_bottom = 156
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("2_ggm60")
+
+[node name="WeaponHolder" type="Node2D" parent="Player"]
 
 [node name="Platforms" type="Node" parent="."]
 
