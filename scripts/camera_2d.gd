@@ -1,20 +1,29 @@
 extends Camera2D
 
+var TOP_LEFT_POS := Vector2.ZERO
 
-const SCREEN_SIZE := Vector2( 571, 324 )
-var cur_screen := Vector2( 0, 0 )
-
+# Function called whenever the Camera2D, any node in this case, is initialized
 func _ready():
-	top_level = true
-	global_position = get_parent().global_position
-	_update_screen( cur_screen )
+	var playerPos = get_parent().get_node("Player").global_position #Player's position
+	TOP_LEFT_POS.x = floor(playerPos.x / 576) * 576
+	TOP_LEFT_POS.y = floor(playerPos.y / 320) * 320
+	position_smoothing_enabled = false
 
+# Function that aprox 60 times per second to check player position and the end of the screen
 func _physics_process(delta):
-	var parent_screen : Vector2 = ( get_parent().global_position / SCREEN_SIZE ).floor()
-	if not parent_screen.is_equal_approx( cur_screen ):
-		_update_screen( parent_screen )
+	var playerPos = get_parent().get_node("Player").global_position
+	
+	if playerPos.x < TOP_LEFT_POS.x: # Left bound reached
+		_update_screen(Vector2(TOP_LEFT_POS.x - 576, TOP_LEFT_POS.y))
+	if playerPos.x > TOP_LEFT_POS.x + 576: # Right bound reached
+		_update_screen(Vector2(TOP_LEFT_POS.x + 576, TOP_LEFT_POS.y))
+	if playerPos.y < TOP_LEFT_POS.y: # Top bound reached
+		_update_screen(Vector2(TOP_LEFT_POS.x, TOP_LEFT_POS.y - 320))
+	if playerPos.y > TOP_LEFT_POS.y + 320:
+		_update_screen(Vector2(TOP_LEFT_POS.x, TOP_LEFT_POS.y + 320))
 
-
-func _update_screen( new_screen : Vector2 ):
-	cur_screen = new_screen
-	global_position = cur_screen * SCREEN_SIZE + SCREEN_SIZE / 2
+# Function to apply changes to the camera position
+func _update_screen(newPos):
+	TOP_LEFT_POS = newPos
+	global_position = newPos
+	
