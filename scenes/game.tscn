@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
 [ext_resource type="Script" path="res://scripts/camera_2d.gd" id="2_ggm60"]
 [ext_resource type="Texture2D" uid="uid://cf1v4dx4xvtep" path="res://assets/sprites/tile_sheet.png" id="6_lenv4"]
-[ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun.tscn" id="6_o1wkc"]
+[ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
@@ -249,6 +249,8 @@ script = ExtResource("2_ggm60")
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
 position = Vector2(54, -24)
 inventory = ExtResource("2_g53v5")
+
+[node name="WeaponHolder" type="Node2D" parent="Player"]
 
 [node name="MapLayers" type="Node" parent="."]
 

@@ -1,31 +1,37 @@
 extends Panel
 
+class_name HotBar
+
 @onready var inventory: Inventory = preload("res://scripts/gui/Inventory/inventoryPlayer.tres")
 @onready var slots: Array = $Container.get_children()
 @onready var selector: Sprite2D = $Selector
 
-var selected_slot_index: int = 0
+var key_number: int = 0
+var prev_slot_content: Resource
 
 func _ready():
 	inventory.updated.connect(update)
 	update()
-	
 
+func _process(delta: float) -> void:
+	var curr_slot_content = inventory.items[key_number]
+	if curr_slot_content != prev_slot_content:
+		inventory.show_item_at_index(key_number)
+	
+	prev_slot_content = curr_slot_content
+	
+	
 func update():
 	for i in range(min(inventory.items.size(), slots.size())):
 		slots[i].update(inventory.items[i])
 	
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		var key_number = event.keycode - KEY_1
-		if key_number >= 0 and key_number < slots.size():
+		var temp = event.keycode - KEY_1
+		if temp >= 0 and temp < slots.size():
+			key_number = temp
 			select_slot(key_number)
-	if event.is_action_pressed("use_item"):
-		inventory.use_item_at_index(selected_slot_index)
-
-
-
+		
 func select_slot(index):
-	selected_slot_index = index
-	selector.global_position = slots[selected_slot_index].global_position
+	selector.global_position = slots[index].global_position
 	update()

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PrinterItem" load_steps=4 format=3 uid="uid://oje2vrs3oq37"]
+
+[ext_resource type="PackedScene" uid="uid://desyvu4jybwb6" path="res://scenes/weapons/printer.tscn" id="1_usq2y"]
+[ext_resource type="Script" path="res://scripts/gui/Inventory/printer.gd" id="2_bs8rk"]
+[ext_resource type="Texture2D" uid="uid://b5bu8c0c7b2xb" path="res://TTTP Art/Weapons/printer.png" id="2_i857e"]
+
+[resource]
+script = ExtResource("2_bs8rk")
+printer_class = ExtResource("1_usq2y")
+name = "Printer"
+texture = ExtResource("2_i857e")

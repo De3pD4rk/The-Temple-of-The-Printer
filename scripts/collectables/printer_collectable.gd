@@ -1,5 +1,5 @@
 extends "res://scripts/collectables/collectable.gd"
 
 func collect(inventory: Inventory):
-	print("Shotgun collected")
+	print("Printer collected")
 	super.collect(inventory)

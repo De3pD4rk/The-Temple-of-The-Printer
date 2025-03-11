@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://desyvu4jybwb6"]
+
+[ext_resource type="Script" path="res://scripts/weapons/printer.gd" id="1_u0vrd"]
+[ext_resource type="Texture2D" uid="uid://b5bu8c0c7b2xb" path="res://TTTP Art/Weapons/printer.png" id="2_qcbt1"]
+
+[node name="Printer" type="Node2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_u0vrd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -2)
+texture = ExtResource("2_qcbt1")
+
+[node name="shootspeed" type="Timer" parent="."]
+
+[node name="barrel" type="Marker2D" parent="."]
+position = Vector2(14, -5)
+
+[connection signal="timeout" from="shootspeed" to="." method="_on_shootspeed_timeout"]

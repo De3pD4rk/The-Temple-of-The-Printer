@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://phkvwnfchh52"]
+
+[ext_resource type="Script" path="res://scripts/weapons/shotgun.gd" id="1_b815f"]
+[ext_resource type="Texture2D" uid="uid://dxwj63wjspwmp" path="res://TTTP Art/Weapons/shotgun.png" id="2_1njpg"]
+
+[node name="Shotgun" type="Node2D"]
+position = Vector2(0, -4)
+script = ExtResource("1_b815f")
+shootSpeed = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -2)
+texture = ExtResource("2_1njpg")
+
+[node name="barrel" type="Marker2D" parent="."]
+position = Vector2(12, -3)
+
+[node name="shootspeed" type="Timer" parent="."]
+
+[connection signal="timeout" from="shootspeed" to="." method="_on_shootspeed_timeout"]
