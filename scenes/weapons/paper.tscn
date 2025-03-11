@@ -8,6 +8,7 @@ size = Vector2(12, 6)
 
 [node name="Paper" type="Area2D"]
 script = ExtResource("1_7reav")
+speed = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_l4dp0")
