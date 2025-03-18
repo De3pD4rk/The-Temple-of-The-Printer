@@ -8,12 +8,22 @@ const JUMP_VELOCITY = -300.0
 @onready var vine_ray_cast: RayCast2D = $VineRayCaster
 @onready var spike_ray_cast: RayCast2D = $SpikeRayCaster
 @onready var weapon_holder: Node2D = $WeaponHolder
+@onready var coin_label: Label = $"../Camera2D/CoinCount"
+
 @export var inventory: Inventory
 
 var current_weapon : Node2D = null
 
+var coin_count: int = 0
+
 func _ready():
 	inventory.show_item.connect(show_item)
+	for coin in get_tree().get_nodes_in_group("coins"):
+		print("LOL")
+		coin.coin_collected.connect(add_coin)
+	
+	get_tree().node_added.connect(_on_node_added)
+	
 
 func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
@@ -88,3 +98,11 @@ func show_item(item: InventoryItem) -> void:
 	if item and item is PrinterItem:
 		current_weapon = item.new_instance()
 		weapon_holder.add_child(current_weapon)
+
+func _on_node_added(node):
+	if node.is_in_group("coins"):
+		node.coin_collected.connect(add_coin)
+
+func add_coin():
+	coin_count += 1
+	coin_label.text = "Coin Count: " + str(coin_count)

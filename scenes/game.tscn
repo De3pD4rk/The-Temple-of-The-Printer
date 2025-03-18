@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=22 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
 [ext_resource type="Texture2D" uid="uid://dpsrsee2ymn0b" path="res://assets/sprites/van.png" id="9_2lb6r"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
+[ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="11_svytg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x4vcy"]
+font_size = 8
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0510x"]
 resource_name = "collectables"
@@ -245,6 +249,16 @@ anchor_mode = 0
 zoom = Vector2(2, 2)
 limit_smoothed = true
 script = ExtResource("2_ggm60")
+
+[node name="CoinCount" type="Label" parent="Camera2D"]
+z_index = 5
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 179.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("11_svytg")
+text = "Coin Count: 0"
+label_settings = SubResource("LabelSettings_x4vcy")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
 position = Vector2(54, -24)

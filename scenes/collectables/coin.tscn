@@ -1,9 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://crra5d04bv6pn"]
+[gd_scene load_steps=21 format=3 uid="uid://crra5d04bv6pn"]
 
 [ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="1_58xak"]
 [ext_resource type="Script" path="res://scripts/collectables/coin.gd" id="2_7suwp"]
 [ext_resource type="Texture2D" uid="uid://cpvuve6rxk8k0" path="res://brackeys_platformer_assets/sprites/coin.png" id="2_d4ee3"]
-[ext_resource type="Resource" uid="uid://stbeelr22qyx" path="res://scripts/gui/Inventory/coin.tres" id="3_js03d"]
+[ext_resource type="Script" path="res://scripts/gui/Inventory/inventory_item.gd" id="3_3ht01"]
+[ext_resource type="Texture2D" uid="uid://c57f5jk5roca0" path="res://Ninja Adventure - Asset Pack/Items/Weapons/Hammer/Sprite.png" id="4_tj2r7"]
+
+[sub_resource type="Resource" id="Resource_0f1kg"]
+script = ExtResource("3_3ht01")
+name = "Coin"
+texture = ExtResource("4_tj2r7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0t3wq"]
 resource_local_to_scene = true
@@ -101,9 +107,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Coin" instance=ExtResource("1_58xak")]
+[node name="Coin" groups=["coins"] instance=ExtResource("1_58xak")]
 script = ExtResource("2_7suwp")
-itemRes = ExtResource("3_js03d")
+itemRes = SubResource("Resource_0f1kg")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_0t3wq")
