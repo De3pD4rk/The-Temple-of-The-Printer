@@ -260,6 +260,16 @@ theme_override_fonts/font = ExtResource("11_svytg")
 text = "Coin Count: 0"
 label_settings = SubResource("LabelSettings_x4vcy")
 
+[node name="DeathCount" type="Label" parent="Camera2D"]
+z_index = 5
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 180.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("11_svytg")
+text = "Deaths: 0"
+label_settings = SubResource("LabelSettings_x4vcy")
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
 position = Vector2(54, -24)
 inventory = ExtResource("2_g53v5")

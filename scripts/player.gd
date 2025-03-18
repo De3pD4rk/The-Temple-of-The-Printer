@@ -9,12 +9,13 @@ const JUMP_VELOCITY = -300.0
 @onready var spike_ray_cast: RayCast2D = $SpikeRayCaster
 @onready var weapon_holder: Node2D = $WeaponHolder
 @onready var coin_label: Label = $"../Camera2D/CoinCount"
+@onready var death_label: Label = $"../Camera2D/DeathCount"
 
 @export var inventory: Inventory
 
 var current_weapon : Node2D = null
 
-var coin_count: int = 0
+var coin_counter: int = 0
 
 func _ready():
 	inventory.show_item.connect(show_item)
@@ -25,10 +26,14 @@ func _ready():
 	get_tree().node_added.connect(_on_node_added)
 	
 
+func _process(delta):
+	death_label.text = "Deaths: " + str(Global.death_counter)
+	
 func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
 	if spike_ray_cast.get_collider():
 		print("You died!")
+		Global.death_counter += 1
 		self.inventory.clear()
 		get_tree().reload_current_scene()
 	
@@ -104,5 +109,5 @@ func _on_node_added(node):
 		node.coin_collected.connect(add_coin)
 
 func add_coin():
-	coin_count += 1
-	coin_label.text = "Coin Count: " + str(coin_count)
+	coin_counter += 1
+	coin_label.text = "Coin Count: " + str(coin_counter)
