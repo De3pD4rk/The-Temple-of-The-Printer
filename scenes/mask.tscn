@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://dg6d8anyh4fcu"]
+
+[ext_resource type="Script" path="res://scripts/mask.gd" id="1_ddv4i"]
+[ext_resource type="Texture2D" uid="uid://crfj51gf85f37" path="res://TTTP Art/Enemies/mascara_v2.png" id="2_xrfj8"]
+[ext_resource type="PackedScene" uid="uid://bbeg6j2hwtxwh" path="res://scenes/killzone.tscn" id="3_6xvr7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrepi"]
+atlas = ExtResource("2_xrfj8")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_siymc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrepi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik2n3"]
+size = Vector2(8, 12)
+
+[sub_resource type="Animation" id="Animation_qjdyl"]
+resource_name = "Default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -48), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Killzone:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -5), Vector2(1, -53), Vector2(1, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_ejirf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Killzone:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ot36h"]
+_data = {
+"Default": SubResource("Animation_qjdyl"),
+"RESET": SubResource("Animation_ejirf")
+}
+
+[node name="Mask" type="Node2D"]
+script = ExtResource("1_ddv4i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_siymc")
+autoplay = "default"
+
+[node name="Killzone" parent="." instance=ExtResource("3_6xvr7")]
+position = Vector2(1, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_ik2n3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ot36h")
+}
+autoplay = "Default"
