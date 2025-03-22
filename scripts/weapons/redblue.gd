@@ -13,7 +13,10 @@ func use():
 	if canUse:
 		canUse = false
 		cooldown.start()
-		get_tree().get_first_node_in_group("Player").remove_item_from_inventory()
+		var player = get_tree().get_first_node_in_group("Player")
+		if player:
+			player.activate_invulnerability(10)
+		player.remove_item_from_inventory()
 	
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())

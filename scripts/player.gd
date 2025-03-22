@@ -11,6 +11,10 @@ const JUMP_VELOCITY = -300.0
 @onready var coin_label: Label = $"../Camera2D/CoinCount"
 @onready var death_label: Label = $"../Camera2D/DeathCount"
 
+var is_invulnerable = false
+@onready var invulnerability: Timer = $Invulnerability
+
+
 @export var inventory: Inventory
 
 var current_weapon : Node2D = null
@@ -20,6 +24,7 @@ var coin_counter: int = 0
 
 func _ready():
 	inventory.show_item.connect(show_item)
+		
 	for coin in get_tree().get_nodes_in_group("coins"):
 		coin.coin_collected.connect(add_coin)
 	
@@ -31,7 +36,7 @@ func _process(delta):
 	
 func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
-	if spike_ray_cast.get_collider():
+	if spike_ray_cast.get_collider() and spike_ray_cast:
 		Global.death_counter += 1
 		self.inventory.clear()
 		get_tree().reload_current_scene()
@@ -123,3 +128,10 @@ func remove_item_from_inventory():
 	inventory.remove(current_item_gui)
 	current_weapon.queue_free()
 	current_weapon = null
+
+func activate_invulnerability(duration: float):
+	is_invulnerable = true
+	invulnerability.start(duration)
+
+func _on_invulnerability_timeout() -> void:
+	is_invulnerable = false
