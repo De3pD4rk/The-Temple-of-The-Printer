@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://2bm5aurqn8e2"]
+
+[ext_resource type="Script" uid="uid://1g02fhmgg02h" path="res://scripts/goblin.gd" id="1_q3g0h"]
+[ext_resource type="Texture2D" uid="uid://b53450v88kies" path="res://TTTP Art/Enemies/goblin.png" id="2_76chb"]
+[ext_resource type="PackedScene" uid="uid://bbeg6j2hwtxwh" path="res://scenes/killzone.tscn" id="3_g1p1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1p1y"]
+atlas = ExtResource("2_76chb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkl8q"]
+atlas = ExtResource("2_76chb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyaat"]
+atlas = ExtResource("2_76chb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u21pb"]
+atlas = ExtResource("2_76chb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vho8j"]
+atlas = ExtResource("2_76chb")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2t3q"]
+atlas = ExtResource("2_76chb")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osho7"]
+atlas = ExtResource("2_76chb")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exsy4"]
+atlas = ExtResource("2_76chb")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_siymc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1p1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkl8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyaat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u21pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vho8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2t3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osho7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exsy4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik2n3"]
+size = Vector2(7, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwo3q"]
+size = Vector2(7, 14)
+
+[node name="goblin" type="CharacterBody2D" groups=["enemies"]]
+z_index = 1
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_q3g0h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_siymc")
+autoplay = "default"
+frame_progress = 0.894842
+
+[node name="Killzone" parent="." instance=ExtResource("3_g1p1y")]
+position = Vector2(1, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1.5, 5)
+shape = SubResource("RectangleShape2D_ik2n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_hwo3q")
+
+[node name="Stun_Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Stun_Timer" to="." method="_on_stun_timer_timeout"]

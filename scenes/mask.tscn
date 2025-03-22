@@ -50,6 +50,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, -5), Vector2(1, -53), Vector2(1, -5)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, -47), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ejirf"]
 length = 0.001
@@ -77,6 +89,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, -5)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ot36h"]
 _data = {
@@ -85,6 +109,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwo3q"]
+size = Vector2(8, 12)
 
 [node name="Mask" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
@@ -109,4 +134,9 @@ libraries = {
 autoplay = "Default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hwo3q")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

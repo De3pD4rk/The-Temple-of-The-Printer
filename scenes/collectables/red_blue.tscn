@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvyet70pm05x0"]
+
+[ext_resource type="PackedScene" uid="uid://cjn7h8si65vr6" path="res://scenes/collectables/collectable.tscn" id="1_25jeg"]
+[ext_resource type="Script" uid="uid://nq63w7di6qxn" path="res://scripts/collectables/red_blue_collectable.gd" id="2_3r18g"]
+[ext_resource type="Texture2D" uid="uid://bi05xmd85yj75" path="res://assets/sprites/redblue.png" id="2_27657"]
+[ext_resource type="Resource" uid="uid://bh37m2bdyvasu" path="res://scripts/gui/Inventory/redblue.tres" id="3_3r18g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r18g"]
+resource_local_to_scene = true
+size = Vector2(8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85ugg"]
+atlas = ExtResource("2_27657")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8wkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85ugg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RedBlue" instance=ExtResource("1_25jeg")]
+script = ExtResource("2_3r18g")
+itemRes = ExtResource("3_3r18g")
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_3r18g")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_h8wkl")

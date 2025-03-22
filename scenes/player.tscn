@@ -203,6 +203,9 @@ hit_from_inside = true
 
 [node name="SpikeRayCaster" type="RayCast2D" parent="."]
 target_position = Vector2(0, 10)
-collision_mask = 4
+collision_mask = 8
+
+[node name="Invulnerability" type="Timer" parent="."]
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="timeout" from="Invulnerability" to="." method="_on_invulnerability_timeout"]

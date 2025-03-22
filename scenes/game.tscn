@@ -7,13 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
+[ext_resource type="PackedScene" uid="uid://dvyet70pm05x0" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
 [ext_resource type="Texture2D" uid="uid://dpsrsee2ymn0b" path="res://assets/sprites/van.png" id="9_2lb6r"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="11_svytg"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/mask.tscn" id="12_2q6k5"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dbbua6hxh05c3" path="res://scenes/pause_menu.tscn" id="14_trtic"]
+=======
+[ext_resource type="PackedScene" uid="uid://2bm5aurqn8e2" path="res://scenes/goblin.tscn" id="13_kvuet"]
+>>>>>>> main
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4vcy"]
 font_size = 8
@@ -22,6 +27,7 @@ font_size = 8
 resource_name = "collectables"
 scenes/1/scene = ExtResource("7_80dxl")
 scenes/2/scene = ExtResource("6_o1wkc")
+scenes/3/scene = ExtResource("7_trtic")
 
 [sub_resource type="TileSet" id="TileSet_pi40g"]
 sources/0 = SubResource("TileSetScenesCollectionSource_0510x")
@@ -203,7 +209,7 @@ texture = ExtResource("6_lenv4")
 2:3/0 = 0
 3:3/0 = 0
 7:3/0 = 0
-7:3/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:3/0/physics_layer_3/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ohkwt"]
@@ -239,6 +245,8 @@ physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 2
 physics_layer_2/collision_layer = 4
 physics_layer_2/collision_mask = 4
+physics_layer_3/collision_layer = 8
+physics_layer_3/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_hnnj7")
 sources/3 = SubResource("TileSetAtlasSource_ohkwt")
 
@@ -246,7 +254,7 @@ sources/3 = SubResource("TileSetAtlasSource_ohkwt")
 position = Vector2(-4, 4)
 metadata/_edit_vertical_guides_ = [353.0]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
 position = Vector2(4, -325)
 anchor_mode = 0
 zoom = Vector2(2, 2)
@@ -265,12 +273,31 @@ label_settings = SubResource("LabelSettings_x4vcy")
 
 [node name="DeathCount" type="Label" parent="Camera2D"]
 z_index = 5
-offset_left = 20.0
+offset_left = 19.0
 offset_top = 33.0
-offset_right = 180.0
+offset_right = 179.0
 offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("11_svytg")
 text = "Deaths: 0"
+label_settings = SubResource("LabelSettings_x4vcy")
+
+[node name="PlaytimeLabel" type="Label" parent="Camera2D"]
+z_index = 5
+offset_left = 19.0
+offset_top = 44.0
+offset_right = 179.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("11_svytg")
+text = "Time Played: 00:00"
+label_settings = SubResource("LabelSettings_x4vcy")
+
+[node name="InvulnerabilityLabel" type="Label" parent="Camera2D"]
+z_index = 5
+offset_left = 20.0
+offset_top = 55.0
+offset_right = 180.0
+offset_bottom = 76.0
+theme_override_fonts/font = ExtResource("11_svytg")
 label_settings = SubResource("LabelSettings_x4vcy")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
@@ -282,8 +309,8 @@ inventory = ExtResource("2_g53v5")
 [node name="MapLayers" type="Node" parent="."]
 
 [node name="Collectables" type="TileMapLayer" parent="MapLayers"]
-z_index = -1
-tile_map_data = PackedByteArray("AAAGAPz/AAAAAAAAAQAHAPz/AAAAAAAAAQALAPz/AAAAAAAAAQAPAPn/AAAAAAAAAgA=")
+z_index = 2
+tile_map_data = PackedByteArray("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")
 tile_set = SubResource("TileSet_pi40g")
 
 [node name="BackWall" type="TileMapLayer" parent="MapLayers"]
@@ -306,23 +333,29 @@ texture = ExtResource("13_kvuet")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("10_u2f5d")]
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -48.0
-offset_right = 22.0
-offset_bottom = -28.0
+offset_left = -66.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 30.0
 grow_horizontal = 2
-grow_vertical = 0
 scale = Vector2(2, 2)
 
 [node name="Mask" parent="." instance=ExtResource("12_2q6k5")]
 position = Vector2(254, -34)
 
+<<<<<<< HEAD
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("14_trtic")]
 visible = false
+=======
+[node name="goblin" parent="." instance=ExtResource("13_kvuet")]
+position = Vector2(178, -28)
+
+[node name="Goblins" type="Node" parent="."]
+
+[node name="Masks" type="Node" parent="."]
+>>>>>>> main

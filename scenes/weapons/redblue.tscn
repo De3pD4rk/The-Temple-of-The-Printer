@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqy0s8e1d1jqq"]
+
+[ext_resource type="Script" uid="uid://deyodcmbveqp5" path="res://scripts/weapons/redblue.gd" id="1_cgu33"]
+[ext_resource type="Texture2D" uid="uid://bi05xmd85yj75" path="res://assets/sprites/redblue.png" id="2_cx5yu"]
+
+[node name="Redblue" type="Node2D"]
+position = Vector2(0, -4)
+script = ExtResource("1_cgu33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -2)
+texture = ExtResource("2_cx5yu")
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 30.0
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
