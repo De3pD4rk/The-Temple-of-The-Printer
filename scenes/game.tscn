@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=25 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
+[ext_resource type="PackedScene" uid="uid://dvyet70pm05x0" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
 [ext_resource type="Texture2D" uid="uid://dpsrsee2ymn0b" path="res://assets/sprites/van.png" id="9_2lb6r"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
@@ -21,6 +22,7 @@ font_size = 8
 resource_name = "collectables"
 scenes/1/scene = ExtResource("7_80dxl")
 scenes/2/scene = ExtResource("6_o1wkc")
+scenes/3/scene = ExtResource("7_trtic")
 
 [sub_resource type="TileSet" id="TileSet_pi40g"]
 sources/0 = SubResource("TileSetScenesCollectionSource_0510x")
@@ -282,7 +284,7 @@ inventory = ExtResource("2_g53v5")
 
 [node name="Collectables" type="TileMapLayer" parent="MapLayers"]
 z_index = -1
-tile_map_data = PackedByteArray("AAAGAPz/AAAAAAAAAQAHAPz/AAAAAAAAAQALAPz/AAAAAAAAAQAPAPn/AAAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAGAPz/AAAAAAAAAQAHAPz/AAAAAAAAAQALAPz/AAAAAAAAAQAPAPn/AAAAAAAAAgAEAPz/AAAAAAAAAwA=")
 tile_set = SubResource("TileSet_pi40g")
 
 [node name="BackWall" type="TileMapLayer" parent="MapLayers"]

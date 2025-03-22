@@ -103,6 +103,10 @@ func show_item(item: InventoryItem) -> void:
 	if item and item is PrinterItem:
 		current_weapon = item.new_instance()
 		weapon_holder.add_child(current_weapon)
+		
+	if item and item is RedBlueItem:
+		current_weapon = item.new_instance()
+		weapon_holder.add_child(current_weapon)
 
 func _on_node_added(node):
 	if node.is_in_group("coins"):
