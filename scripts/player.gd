@@ -10,6 +10,8 @@ const JUMP_VELOCITY = -300.0
 @onready var weapon_holder: Node2D = $WeaponHolder
 @onready var coin_label: Label = $"../Camera2D/CoinCount"
 @onready var death_label: Label = $"../Camera2D/DeathCount"
+@onready var invulnerability_label: Label = $"../Camera2D/InvulnerabilityLabel"
+@onready var playtime_label: Label = $"../Camera2D/PlaytimeLabel"
 
 var is_invulnerable = false
 @onready var invulnerability: Timer = $Invulnerability
@@ -33,6 +35,13 @@ func _ready():
 
 func _process(delta):
 	death_label.text = "Deaths: " + str(Global.death_counter)
+	
+	if is_invulnerable:
+		invulnerability_label.text = str(ceil(invulnerability.time_left))
+	
+	var minutes = int(Global.playtime) / 60
+	var seconds = int(Global.playtime) % 60
+	playtime_label.text = "Time Played: %02d:%02d" % [minutes, seconds]
 	
 func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
@@ -132,6 +141,9 @@ func remove_item_from_inventory():
 func activate_invulnerability(duration: float):
 	is_invulnerable = true
 	invulnerability.start(duration)
+	invulnerability_label.text = str(duration)
+	invulnerability_label.show()
 
 func _on_invulnerability_timeout() -> void:
 	is_invulnerable = false
+	invulnerability_label.hide()
