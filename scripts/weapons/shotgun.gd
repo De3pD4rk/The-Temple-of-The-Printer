@@ -15,7 +15,6 @@ func _ready():
 
 func shoot():
 	if canShoot:
-		print("yea yeah")
 		canShoot = false
 		shootspeed_timer.start()
 		var bullet_instance = BULLET.instantiate()
@@ -33,7 +32,6 @@ func _process(delta: float) -> void:
 		scale.y = 1
 
 	if Input.is_action_just_pressed("use_item"):
-		print("yeah")
 		shoot()
 
 func _on_shootspeed_timeout() -> void:

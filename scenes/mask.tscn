@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg6d8anyh4fcu"]
+[gd_scene load_steps=11 format=3 uid="uid://dg6d8anyh4fcu"]
 
 [ext_resource type="Script" path="res://scripts/mask.gd" id="1_ddv4i"]
 [ext_resource type="Texture2D" uid="uid://crfj51gf85f37" path="res://TTTP Art/Enemies/mascara_v2.png" id="2_xrfj8"]
@@ -84,7 +84,11 @@ _data = {
 "RESET": SubResource("Animation_ejirf")
 }
 
-[node name="Mask" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwo3q"]
+
+[node name="Mask" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_ddv4i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -103,3 +107,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ot36h")
 }
 autoplay = "Default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+shape = SubResource("RectangleShape2D_hwo3q")
