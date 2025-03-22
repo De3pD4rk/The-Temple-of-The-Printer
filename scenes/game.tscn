@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=24 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="11_svytg"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/mask.tscn" id="12_2q6k5"]
+[ext_resource type="PackedScene" uid="uid://2bm5aurqn8e2" path="res://scenes/goblin.tscn" id="13_kvuet"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4vcy"]
 font_size = 8
@@ -298,18 +299,18 @@ tile_set = SubResource("TileSet_ckgm4")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hotbar" parent="CanvasLayer" instance=ExtResource("10_u2f5d")]
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -46.0
-offset_top = -48.0
-offset_right = 22.0
-offset_bottom = -28.0
+offset_left = -66.0
+offset_top = 10.0
+offset_right = 2.0
+offset_bottom = 30.0
 grow_horizontal = 2
-grow_vertical = 0
 scale = Vector2(2, 2)
 
 [node name="Mask" parent="." instance=ExtResource("12_2q6k5")]
 position = Vector2(254, -34)
+
+[node name="goblin" parent="." instance=ExtResource("13_kvuet")]
+position = Vector2(178, -28)
