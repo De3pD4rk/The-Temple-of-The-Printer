@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://bph4qk1ugcxxp"]
+
+[ext_resource type="Script" uid="uid://dx0546kwpndps" path="res://scripts/menu/main_menu.gd" id="1_bqqt6"]
+[ext_resource type="FontFile" uid="uid://62vwrr5ow0er" path="res://assets/fonts/Temple-Jump.ttf" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="2_ekxnf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font = ExtResource("1_l6cm7")
+font_size = 90
+font_color = Color(0.362143, 0.696493, 0.367582, 1)
+
+[sub_resource type="Theme" id="Theme_l6cm7"]
+default_font = ExtResource("1_l6cm7")
+default_font_size = 50
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.922895, 0.942908, 0, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqqt6")
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -464.0
+offset_top = -230.0
+offset_right = 495.0
+offset_bottom = -143.0
+grow_horizontal = 2
+text = "Temple of the Printer"
+label_settings = SubResource("LabelSettings_ekxnf")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -31.5
+offset_right = 54.0
+offset_bottom = 159.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/v_separation = 10
+
+[node name="Play" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l6cm7")
+theme_type_variation = &"FlatButton"
+text = "Play
+"
+
+[node name="Help" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l6cm7")
+theme_type_variation = &"FlatButton"
+text = "Help
+"
+
+[node name="Quit" type="Button" parent="GridContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l6cm7")
+theme_type_variation = &"FlatButton"
+text = "Quit"
+
+[node name="Jungle" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1.21625, 45.75)
+scale = Vector2(1.56852, 1.56852)
+texture = ExtResource("2_ekxnf")
+
+[connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="GridContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
