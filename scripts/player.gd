@@ -14,13 +14,13 @@ const JUMP_VELOCITY = -300.0
 @export var inventory: Inventory
 
 var current_weapon : Node2D = null
+var current_item_gui : InventoryItem = null
 
 var coin_counter: int = 0
 
 func _ready():
 	inventory.show_item.connect(show_item)
 	for coin in get_tree().get_nodes_in_group("coins"):
-		print("LOL")
 		coin.coin_collected.connect(add_coin)
 	
 	get_tree().node_added.connect(_on_node_added)
@@ -32,7 +32,6 @@ func _process(delta):
 func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
 	if spike_ray_cast.get_collider():
-		print("You died!")
 		Global.death_counter += 1
 		self.inventory.clear()
 		get_tree().reload_current_scene()
@@ -95,17 +94,21 @@ func show_item(item: InventoryItem) -> void:
 	if not current_weapon == null:
 		weapon_holder.get_child(0).queue_free()
 		current_weapon = null
+		current_item_gui = null
 	
 	if item and item is ShotgunItem:
 		current_weapon = item.new_instance()
+		current_item_gui = item
 		weapon_holder.add_child(current_weapon)
 		
 	if item and item is PrinterItem:
 		current_weapon = item.new_instance()
+		current_item_gui = item
 		weapon_holder.add_child(current_weapon)
 		
 	if item and item is RedBlueItem:
 		current_weapon = item.new_instance()
+		current_item_gui = item
 		weapon_holder.add_child(current_weapon)
 
 func _on_node_added(node):
@@ -115,3 +118,8 @@ func _on_node_added(node):
 func add_coin():
 	coin_counter += 1
 	coin_label.text = "Coin Count: " + str(coin_counter)
+	
+func remove_item_from_inventory():
+	inventory.remove(current_item_gui)
+	current_weapon.queue_free()
+	current_weapon = null
