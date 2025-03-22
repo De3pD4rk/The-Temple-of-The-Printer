@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=26 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
@@ -7,18 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
-[ext_resource type="PackedScene" uid="uid://dvyet70pm05x0" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
+[ext_resource type="PackedScene" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
 [ext_resource type="Texture2D" uid="uid://dpsrsee2ymn0b" path="res://assets/sprites/van.png" id="9_2lb6r"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="11_svytg"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/mask.tscn" id="12_2q6k5"]
-<<<<<<< HEAD
-[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="13_kvuet"]
+[ext_resource type="PackedScene" path="res://scenes/goblin.tscn" id="13_kvuet"]
 [ext_resource type="PackedScene" uid="uid://dbbua6hxh05c3" path="res://scenes/pause_menu.tscn" id="14_trtic"]
-=======
-[ext_resource type="PackedScene" uid="uid://2bm5aurqn8e2" path="res://scenes/goblin.tscn" id="13_kvuet"]
->>>>>>> main
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4vcy"]
 font_size = 8
@@ -328,7 +324,6 @@ tile_set = SubResource("TileSet_ckgm4")
 z_index = -1
 position = Vector2(2617, 186)
 scale = Vector2(0.810492, 0.810493)
-texture = ExtResource("13_kvuet")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -346,16 +341,14 @@ scale = Vector2(2, 2)
 [node name="Mask" parent="." instance=ExtResource("12_2q6k5")]
 position = Vector2(254, -34)
 
-<<<<<<< HEAD
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("14_trtic")]
 visible = false
-=======
+
 [node name="goblin" parent="." instance=ExtResource("13_kvuet")]
 position = Vector2(178, -28)
 
 [node name="Goblins" type="Node" parent="."]
 
 [node name="Masks" type="Node" parent="."]
->>>>>>> main
