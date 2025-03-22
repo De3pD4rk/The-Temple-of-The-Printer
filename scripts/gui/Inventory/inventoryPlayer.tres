@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://dsp8xrqwxaxtk"]
 
-[ext_resource type="Script" path="res://scripts/gui/Inventory/inventory_item.gd" id="1_3486f"]
+[ext_resource type="Script" uid="uid://cajggt1gsgawq" path="res://scripts/gui/Inventory/inventory_item.gd" id="1_3486f"]
 [ext_resource type="Resource" uid="uid://oje2vrs3oq37" path="res://scripts/gui/Inventory/printer.tres" id="2_gyqu4"]
-[ext_resource type="Script" path="res://scripts/gui/Inventory/inventory.gd" id="4_lhdj4"]
+[ext_resource type="Script" uid="uid://d18bp7wrgw7p0" path="res://scripts/gui/Inventory/inventory.gd" id="4_lhdj4"]
 
 [resource]
 script = ExtResource("4_lhdj4")

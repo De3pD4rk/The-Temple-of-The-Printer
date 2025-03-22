@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://4rm73txs3hbc"]
 
-[ext_resource type="Script" path="res://scripts/weapons/bullet.gd" id="1_7y33o"]
+[ext_resource type="Script" uid="uid://c8pjkrscpauow" path="res://scripts/weapons/bullet.gd" id="1_7y33o"]
 [ext_resource type="Texture2D" uid="uid://c3kjqb7pjp3u8" path="res://TTTP Art/Weapons/bullet.png" id="2_2jwa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lablo"]

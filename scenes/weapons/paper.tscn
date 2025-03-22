@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://buclo78e3jg6e"]
 
-[ext_resource type="Script" path="res://scripts/weapons/paper.gd" id="1_7reav"]
+[ext_resource type="Script" uid="uid://dyduygjybd0lb" path="res://scripts/weapons/paper.gd" id="1_7reav"]
 [ext_resource type="Texture2D" uid="uid://bkrwemq2tqw2i" path="res://TTTP Art/Weapons/paper.png" id="2_l4dp0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ysscf"]

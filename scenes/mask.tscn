@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dg6d8anyh4fcu"]
 
-[ext_resource type="Script" path="res://scripts/mask.gd" id="1_ddv4i"]
+[ext_resource type="Script" uid="uid://co2se4cc4s560" path="res://scripts/mask.gd" id="1_ddv4i"]
 [ext_resource type="Texture2D" uid="uid://crfj51gf85f37" path="res://TTTP Art/Enemies/mascara_v2.png" id="2_xrfj8"]
 [ext_resource type="PackedScene" uid="uid://bbeg6j2hwtxwh" path="res://scenes/killzone.tscn" id="3_6xvr7"]
 
@@ -80,8 +80,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ot36h"]
 _data = {
-"Default": SubResource("Animation_qjdyl"),
-"RESET": SubResource("Animation_ejirf")
+&"Default": SubResource("Animation_qjdyl"),
+&"RESET": SubResource("Animation_ejirf")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hwo3q"]
@@ -104,7 +104,7 @@ shape = SubResource("RectangleShape2D_ik2n3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ot36h")
+&"": SubResource("AnimationLibrary_ot36h")
 }
 autoplay = "Default"
 

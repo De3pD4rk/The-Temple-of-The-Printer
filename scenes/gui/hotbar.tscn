@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhw008woawyn4"]
 
-[ext_resource type="Script" path="res://scripts/gui/Inventory/hotbar_gui.gd" id="1_1tcc8"]
+[ext_resource type="Script" uid="uid://b1hdk20amb0dq" path="res://scripts/gui/Inventory/hotbar_gui.gd" id="1_1tcc8"]
 [ext_resource type="PackedScene" uid="uid://r7o4jh3g6y6t" path="res://scenes/gui/hotbar_slot.tscn" id="1_la4p3"]
 [ext_resource type="Texture2D" uid="uid://chxoc5pgnhht8" path="res://Ninja Adventure - Asset Pack/Additional Art/hotbar_selector.png" id="3_eedle"]
 

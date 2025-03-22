@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://r7o4jh3g6y6t"]
 
-[ext_resource type="Script" path="res://scripts/gui/hotbar_slot.gd" id="1_p2i2r"]
+[ext_resource type="Script" uid="uid://bgj7axvekxr4m" path="res://scripts/gui/hotbar_slot.gd" id="1_p2i2r"]
 [ext_resource type="Texture2D" uid="uid://ntp87ub71805" path="res://Ninja Adventure - Asset Pack/Additional Art/inventorySlot.png" id="2_2cjqj"]
 
 [node name="HotbarSlot" type="Panel"]

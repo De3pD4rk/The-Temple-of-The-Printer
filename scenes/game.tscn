@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="2_ggm60"]
+[ext_resource type="Script" uid="uid://c04mnk7r28tvb" path="res://scripts/camera_2d.gd" id="2_ggm60"]
 [ext_resource type="Texture2D" uid="uid://cf1v4dx4xvtep" path="res://assets/sprites/tile_sheet.png" id="6_lenv4"]
 [ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
