@@ -7,6 +7,7 @@ func _ready():
 	var playerPos = get_parent().get_node("Player").global_position #Player's position
 	TOP_LEFT_POS.x = floor(playerPos.x / 576) * 576
 	TOP_LEFT_POS.y = floor(playerPos.y / 320) * 320
+	_update_screen(TOP_LEFT_POS)
 	position_smoothing_enabled = false
 
 # Function that aprox 60 times per second to check player position and the end of the screen

@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 	# Check player colision with the spikes
 	if spike_ray_cast.get_collider() and spike_ray_cast:
 		Global.death_counter += 1
+		Global.kills = 0
 		self.inventory.clear()
 		get_tree().reload_current_scene()
 	

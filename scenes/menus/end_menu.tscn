@@ -1,0 +1,112 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnyemq6l8oydn"]
+
+[ext_resource type="Script" uid="uid://b4q6u5oiky8gh" path="res://scripts/menu/end_menu.gd" id="1_nb2d3"]
+[ext_resource type="FontFile" uid="uid://62vwrr5ow0er" path="res://assets/fonts/Temple-Jump.ttf" id="2_10m7f"]
+[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="3_prctr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwu44"]
+font = ExtResource("2_10m7f")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_albv7"]
+font = ExtResource("2_10m7f")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_wqo5a"]
+default_font = ExtResource("2_10m7f")
+default_font_size = 40
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.847059, 0.862745, 0, 1)
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nb2d3")
+
+[node name="You win!" type="Label" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 67.0
+offset_right = 753.0
+offset_bottom = 154.0
+text = "You win!"
+label_settings = SubResource("LabelSettings_pwu44")
+
+[node name="Texts" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -149.0
+offset_right = 34.0
+offset_bottom = -57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="Texts"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Time"
+label_settings = SubResource("LabelSettings_albv7")
+
+[node name="Deaths" type="Label" parent="Texts"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Deaths"
+label_settings = SubResource("LabelSettings_albv7")
+
+[node name="Coins" type="Label" parent="Texts"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Coins"
+label_settings = SubResource("LabelSettings_albv7")
+
+[node name="Kills" type="Label" parent="Texts"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Kills"
+label_settings = SubResource("LabelSettings_albv7")
+
+[node name="Buttons" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = 10.0
+offset_right = 101.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play Again" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_wqo5a")
+theme_type_variation = &"FlatButton"
+text = "Play Again"
+
+[node name="Main Menu" type="Button" parent="Buttons"]
+layout_mode = 2
+theme = SubResource("Theme_wqo5a")
+theme_type_variation = &"FlatButton"
+text = "Main Menu"
+
+[node name="Jungle" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576.428, 365.25)
+scale = Vector2(1.56638, 1.56638)
+texture = ExtResource("3_prctr")
+
+[connection signal="pressed" from="Buttons/Play Again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Buttons/Main Menu" to="." method="_on_main_menu_pressed"]

@@ -1,16 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://bph4qk1ugcxxp"]
 
-[ext_resource type="Script" uid="uid://dx0546kwpndps" path="res://scripts/menu/main_menu.gd" id="1_bqqt6"]
-[ext_resource type="FontFile" uid="uid://62vwrr5ow0er" path="res://assets/fonts/Temple-Jump.ttf" id="1_l6cm7"]
-[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://dx0546kwpndps" path="res://scripts/menu/main_menu.gd" id="1_2o76q"]
+[ext_resource type="FontFile" uid="uid://62vwrr5ow0er" path="res://assets/fonts/Temple-Jump.ttf" id="2_6bivr"]
+[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="3_imvie"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
-font = ExtResource("1_l6cm7")
+font = ExtResource("2_6bivr")
 font_size = 90
 font_color = Color(0.362143, 0.696493, 0.367582, 1)
 
 [sub_resource type="Theme" id="Theme_l6cm7"]
-default_font = ExtResource("1_l6cm7")
+default_font = ExtResource("2_6bivr")
 default_font_size = 50
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0.922895, 0.942908, 0, 1)
@@ -24,7 +24,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bqqt6")
+script = ExtResource("1_2o76q")
 
 [node name="GameName" type="Label" parent="."]
 layout_mode = 1
@@ -78,7 +78,7 @@ text = "Quit"
 z_index = -1
 position = Vector2(1.21625, 45.75)
 scale = Vector2(1.56852, 1.56852)
-texture = ExtResource("2_ekxnf")
+texture = ExtResource("3_imvie")
 
 [connection signal="pressed" from="GridContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="GridContainer/Help" to="." method="_on_help_pressed"]

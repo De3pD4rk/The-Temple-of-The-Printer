@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://nqsudqaql4dp"]
+[gd_scene load_steps=29 format=4 uid="uid://nqsudqaql4dp"]
 
 [ext_resource type="PackedScene" uid="uid://cob8lr2hlk7ea" path="res://scenes/player.tscn" id="1_ri33b"]
 [ext_resource type="Resource" uid="uid://dsp8xrqwxaxtk" path="res://scripts/gui/Inventory/inventoryPlayer.tres" id="2_g53v5"]
@@ -7,14 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://bn6rp6npth5mx" path="res://scenes/collectables/shotgun_collectable.tscn" id="6_o1wkc"]
 [ext_resource type="Texture2D" uid="uid://cwv50sw6mdanw" path="res://assets/sprites/tile_sheet_2.png" id="7_5q04k"]
 [ext_resource type="PackedScene" uid="uid://crra5d04bv6pn" path="res://scenes/collectables/coin.tscn" id="7_80dxl"]
-[ext_resource type="PackedScene" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
+[ext_resource type="PackedScene" uid="uid://dvyet70pm05x0" path="res://scenes/collectables/red_blue.tscn" id="7_trtic"]
 [ext_resource type="Texture2D" uid="uid://b8wrve7ugarot" path="res://assets/sprites/tree.png" id="8_frpsu"]
 [ext_resource type="Texture2D" uid="uid://dpsrsee2ymn0b" path="res://assets/sprites/van.png" id="9_2lb6r"]
 [ext_resource type="PackedScene" uid="uid://bhw008woawyn4" path="res://scenes/gui/hotbar.tscn" id="10_u2f5d"]
 [ext_resource type="FontFile" uid="uid://ox0ou0ii1r78" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="11_svytg"]
 [ext_resource type="PackedScene" uid="uid://dg6d8anyh4fcu" path="res://scenes/mask.tscn" id="12_2q6k5"]
-[ext_resource type="PackedScene" path="res://scenes/goblin.tscn" id="13_kvuet"]
-[ext_resource type="PackedScene" uid="uid://dbbua6hxh05c3" path="res://scenes/pause_menu.tscn" id="14_trtic"]
+[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="12_rysoc"]
+[ext_resource type="PackedScene" uid="uid://2bm5aurqn8e2" path="res://scenes/goblin.tscn" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://dbbua6hxh05c3" path="res://scenes/menus/pause_menu.tscn" id="14_trtic"]
+[ext_resource type="Script" uid="uid://xy3ei7d02trv" path="res://scripts/end_game_area.gd" id="16_ca42v"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x4vcy"]
 font_size = 8
@@ -246,8 +248,10 @@ physics_layer_3/collision_mask = 9
 sources/0 = SubResource("TileSetAtlasSource_hnnj7")
 sources/3 = SubResource("TileSetAtlasSource_ohkwt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
+size = Vector2(29.5, 17)
+
 [node name="Game" type="Node2D"]
-position = Vector2(-4, 4)
 metadata/_edit_vertical_guides_ = [353.0]
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
@@ -297,7 +301,7 @@ theme_override_fonts/font = ExtResource("11_svytg")
 label_settings = SubResource("LabelSettings_x4vcy")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_ri33b")]
-position = Vector2(54, -24)
+position = Vector2(66, -24)
 inventory = ExtResource("2_g53v5")
 
 [node name="WeaponHolder" type="Node2D" parent="Player"]
@@ -322,8 +326,9 @@ tile_set = SubResource("TileSet_ckgm4")
 
 [node name="Jungle" type="Sprite2D" parent="MapLayers"]
 z_index = -1
-position = Vector2(2617, 186)
-scale = Vector2(0.810492, 0.810493)
+position = Vector2(2613, 187)
+scale = Vector2(0.801927, 0.801927)
+texture = ExtResource("12_rysoc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -341,14 +346,23 @@ scale = Vector2(2, 2)
 [node name="Mask" parent="." instance=ExtResource("12_2q6k5")]
 position = Vector2(254, -34)
 
-[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("14_trtic")]
-visible = false
-
 [node name="goblin" parent="." instance=ExtResource("13_kvuet")]
 position = Vector2(178, -28)
 
 [node name="Goblins" type="Node" parent="."]
 
 [node name="Masks" type="Node" parent="."]
+
+[node name="PauseMenuLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenuLayer" instance=ExtResource("14_trtic")]
+visible = false
+
+[node name="EndGameArea" type="Area2D" parent="."]
+script = ExtResource("16_ca42v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndGameArea"]
+position = Vector2(2809.75, 194.5)
+shape = SubResource("RectangleShape2D_ca42v")
+
+[connection signal="area_entered" from="EndGameArea" to="EndGameArea" method="_on_area_entered"]

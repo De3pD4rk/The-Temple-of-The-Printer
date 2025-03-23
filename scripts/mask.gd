@@ -18,6 +18,7 @@ func get_damage(damage: int):
 		die()
 
 func die():
+	Global.kills += 1
 	queue_free()
 
 func stun():

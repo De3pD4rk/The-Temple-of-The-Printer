@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccqrawom857s2"]
+
+[ext_resource type="Script" uid="uid://frog8nojctvh" path="res://scripts/menu/help_menu.gd" id="1_gq2hf"]
+[ext_resource type="FontFile" uid="uid://62vwrr5ow0er" path="res://assets/fonts/Temple-Jump.ttf" id="1_vrh88"]
+[ext_resource type="Texture2D" uid="uid://btjtpe1n0oijx" path="res://assets/backgrounds/jungle.jpg" id="3_74oqi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gq2hf"]
+font = ExtResource("1_vrh88")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_74oqi"]
+font = ExtResource("1_vrh88")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_pt11l"]
+font = ExtResource("1_vrh88")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_jsgon"]
+default_font = ExtResource("1_vrh88")
+default_font_size = 40
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.847059, 0.862745, 0, 1)
+
+[node name="HelpMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gq2hf")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 29.0
+offset_right = 218.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "Help menu"
+label_settings = SubResource("LabelSettings_gq2hf")
+
+[node name="Texts" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -162.0
+offset_right = 450.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/v_separation = 27
+
+[node name="Description" type="Label" parent="Texts"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+text = "Welcome to The Temple of the Printer. The lore for this game?  Well, you stole a printer from FEUP, once a triving faculty, now a decaying temple full of enemies and tresure. Your goal is to escape, by entering a blue pick-up truck but where can you find it, you ask? That's for you to find good luck.
+
+Make use of different power-ups in your journey: a printer to stun your enemies, a RedBlue can to give you invencibility and a shotgun to slaughter your enemies. Don't forget to collect coins for that awsome ego boosting rush too.
+
+Have fun!"
+label_settings = SubResource("LabelSettings_74oqi")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Controls" type="Label" parent="Texts"]
+layout_mode = 2
+text = "Controls:
+A - Move right
+D - Mover left
+W - Climb up vines
+S - Climb down vines
+Space - Jumpt
+1, 2, and 3 - Cycle inventory items
+E - Consume RedBlue (if selected)
+Mouse - Aim
+Mouse Right Button - Shoot"
+label_settings = SubResource("LabelSettings_pt11l")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 551.0
+offset_right = 1106.0
+offset_bottom = 598.0
+theme = SubResource("Theme_jsgon")
+theme_type_variation = &"FlatButton"
+text = "Back"
+
+[node name="Jungle" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(575.64, 364.75)
+scale = Vector2(1.56424, 1.56424)
+texture = ExtResource("3_74oqi")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
