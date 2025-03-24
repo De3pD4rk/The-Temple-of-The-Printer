@@ -98,4 +98,7 @@ shape = SubResource("RectangleShape2D_hwo3q")
 
 [node name="Stun_Timer" type="Timer" parent="."]
 
+[node name="Movement_Timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Stun_Timer" to="." method="_on_stun_timer_timeout"]
+[connection signal="timeout" from="Movement_Timer" to="." method="_on_movement_timer_timeout"]

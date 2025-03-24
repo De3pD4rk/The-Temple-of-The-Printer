@@ -348,6 +348,7 @@ position = Vector2(254, -34)
 
 [node name="goblin" parent="." instance=ExtResource("13_kvuet")]
 position = Vector2(178, -28)
+wait = 5.0
 
 [node name="Goblins" type="Node" parent="."]
 
