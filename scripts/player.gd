@@ -133,6 +133,7 @@ func _on_node_added(node):
 func add_coin():
 	coin_counter += 1
 	coin_label.text = "Coin Count: " + str(coin_counter)
+	Global.coins = coin_counter
 	
 func remove_item_from_inventory():
 	inventory.remove(current_item_gui)
