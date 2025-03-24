@@ -343,16 +343,136 @@ offset_bottom = 30.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 
-[node name="Mask" parent="." instance=ExtResource("12_2q6k5")]
-position = Vector2(254, -34)
-
-[node name="goblin" parent="." instance=ExtResource("13_kvuet")]
-position = Vector2(178, -28)
-wait = 5.0
-
 [node name="Goblins" type="Node" parent="."]
 
+[node name="goblin" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(105, -152)
+speed = 70.0
+
+[node name="goblin2" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(192, -248)
+speed = 50.0
+wait = 4.0
+
+[node name="goblin3" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(-536, -168)
+speed = 10.0
+wait = 6.5
+
+[node name="goblin4" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(-369, -280)
+speed = 90.0
+
+[node name="goblin5" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(840, -24)
+wait = 3.0
+
+[node name="goblin6" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(1048, -168)
+speed = 50.0
+
+[node name="goblin7" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(525, -248)
+wait = 3.0
+
+[node name="goblin8" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(695, -344)
+wait = 1.0
+
+[node name="goblin9" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(856, -552)
+speed = 50.0
+wait = 2.5
+
+[node name="goblin10" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(965, -440)
+speed = 70.0
+wait = 1.5
+
+[node name="goblin11" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(1304, -552)
+
+[node name="goblin12" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(1337, -488)
+wait = 2.5
+
+[node name="goblin13" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(1447, -168)
+wait = 1.5
+
+[node name="goblin14" parent="Goblins" instance=ExtResource("13_kvuet")]
+position = Vector2(1880, 136)
+speed = 50.0
+wait = 1.5
+
 [node name="Masks" type="Node" parent="."]
+
+[node name="Mask" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(376, -55)
+speed = 100.0
+flip_x = true
+
+[node name="Mask2" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(542, -171)
+flip_x = true
+
+[node name="Mask3" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(-56, -76)
+flip_x = true
+
+[node name="Mask4" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(-304, -144)
+flip_x = true
+
+[node name="Mask5" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(-449, -199)
+
+[node name="Mask6" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(797, -51)
+flip_x = true
+
+[node name="Mask7" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1079, -41)
+flip_x = true
+
+[node name="Mask8" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(655, -410)
+
+[node name="Mask9" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(656, -487)
+flip_x = true
+
+[node name="Mask10" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1207, -434)
+flip_x = true
+
+[node name="Mask11" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1469, -402)
+flip_x = true
+
+[node name="Mask12" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1671, -216)
+flip_x = true
+
+[node name="Mask13" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1214, 173)
+flip_x = true
+
+[node name="Mask14" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1313, 171)
+flip_x = true
+
+[node name="Mask15" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(1655, 73)
+flip_x = true
+
+[node name="Mask16" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(2216, -34)
+flip_x = true
+
+[node name="Mask17" parent="Masks" instance=ExtResource("12_2q6k5")]
+position = Vector2(2227, 195)
+flip_x = true
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="."]
 
